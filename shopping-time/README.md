@@ -2,13 +2,13 @@
 
 The challenge provided a simple web shop page & it's source in Python. Looking through the code we could see that item details can be viewed via page by their's slugs and one slug in particular returns a blocked page (slug was `Flag`).
 
-![](./uploads/fffc2625-68ed-44ed-8809-8625d955033a.png)
+![](../uploads/fffc2625-68ed-44ed-8809-8625d955033a.png)
 
 It quickly became apparent that items are checked & fetched from the DB by ID made of the first 6 characters of a md5 hash of the slug. Hashing collision!
 
 I asked Claude Sonnet to generate a python script to methodically check all strings (lowercased & digits only for simplicity) and return the first which md5 hash has the same beginning as requested string. 
 
-![](./uploads/df042c51-8f63-408c-a73c-baa14d541bfa.png)
+![](../uploads/df042c51-8f63-408c-a73c-baa14d541bfa.png)
 
 And the generated `md5_collision_finder.py` script goes as follows:
 
@@ -88,11 +88,11 @@ if __name__ == "__main__":
 
 ...and it can be used like this:
 
-![](./uploads/0824f701-be10-415f-a477-c1cbd7ee7fcb.png)
+![](../uploads/0824f701-be10-415f-a477-c1cbd7ee7fcb.png)
 
 ...and it simply worked on the target website. While this particular challenge was rather `Easy` (even for me), it still makes a great reminder to be aware of hashing collisions being a real vulnerability.
 
-![](./uploads/ce634af0-8003-4439-b3c0-245b6d94ff52.jpg)
+![](../uploads/ce634af0-8003-4439-b3c0-245b6d94ff52.jpg)
 
 
 
